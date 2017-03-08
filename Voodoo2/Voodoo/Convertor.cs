@@ -127,6 +127,36 @@ namespace Voodoo
         }
         #endregion
 
+        #region 类型转换为Double
+        /// <summary>
+        /// 类型转换为Decimal
+        /// </summary>
+        /// <param name="self"></param>
+        /// <returns></returns>
+        public static double ToDouble(this object self)
+        {
+            return ToDouble(self, 0);
+        }
+
+        /// <summary>
+        /// 转换为Decimal类型 
+        /// </summary>
+        /// <param name="self"></param>
+        /// <param name="DefaultValue">转换失败的默认值</param>
+        /// <returns></returns>
+        public static double ToDouble(this object self, double DefaultValue)
+        {
+            try
+            {
+                return Convert.ToDouble(self.ToString());
+            }
+            catch
+            {
+                return DefaultValue;
+            }
+        }
+        #endregion
+
         #region 转换为bool类型
         /// <summary>
         /// 转换为bool类型
